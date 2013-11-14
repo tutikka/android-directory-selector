@@ -6,6 +6,8 @@ Simple and customizable directory selector component for Android.
 Screenshots
 -----------
 
+Using the default style resources in Android 4.3:
+
 ![ScreenShot](/screenshots/ss-1.png)
 
 Usage
@@ -16,14 +18,31 @@ Integrating the component to youe existing project is very simple. Probably the 
 1. Clone the project
 2. Import the project into your workspace
 3. Run the sample application and see how the it works from the source code
-4. Turn the project into a library
-* Right-click on the project for properties
-* Select Android
-* Check the option Is Library, then Ok
+4. Turn the project into a library (project properties, Android, Is Library)
 5. Reference the project as a library from your own stuff
 
-Custmization
-------------
+Example
+-------
+
+Create directory selector dialog:
+
+<pre>
+DirectorySelectorDialog directorySelector = new DirectorySelectorDialog(this, Environment.getExternalStorageDirectory());
+directorySelector.addDirectorySelectorListener(this);
+directorySelector.show();	
+</pre>
+
+Listen for directory selection:
+
+<pre>
+@Override
+public void onDirectorySelected(File directory) {
+	Toast.makeText(this, "Selected '" + directory.getAbsolutePath() + "'", Toast.LENGTH_SHORT).show();
+}	
+</pre>
+
+Customization
+-------------
 
 TODO
 
