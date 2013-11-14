@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/directory_list_item_style">
+    
+    <ImageView
+        android:id="@+id/directory_icon"
+		style="@style/directory_icon_style">
+	</ImageView>
+    
+	<TextView
+		android:id="@+id/directory_name"
+	    android:layout_toRightOf="@+id/directory_icon"
+	    style="@style/directory_name_style">
+	</TextView>
+	
+</RelativeLayout>

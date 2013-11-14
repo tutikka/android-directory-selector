@@ -1,0 +1,58 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">  
+    
+    <!-- content relative layout -->
+    <style name="directory_selector_dialog_style">
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">fill_parent</item>    
+    </style>    
+
+    <!-- current folder edittext -->
+    <style name="directory_selector_current_style">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">none</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:enabled">false</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+    
+    <!-- directory items listview -->
+    <style name="directory_selector_list_style">
+   		<item name="android:layout_width">fill_parent</item>
+   		<item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- buttons toolbar table layout -->
+    <style name="directory_selector_buttons_style">    
+	 	<item name="android:layout_width">fill_parent</item>
+	 	<item name="android:layout_height">wrap_content</item>
+	 	<item name="android:stretchColumns">0,1,2</item>
+	</style>
+    
+    <!-- cancel button -->
+    <style name="directory_selector_dialog_cancel_style">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>  
+	    <item name="android:layout_gravity">center_vertical</item>
+	    <item name="android:textSize">12sp</item>        
+    </style>      
+
+    <!-- home button -->
+    <style name="directory_selector_dialog_home_style">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>  
+	    <item name="android:layout_gravity">center_vertical</item>
+	    <item name="android:textSize">12sp</item>	      
+    </style>    
+    
+    <!-- select button -->
+    <style name="directory_selector_dialog_select_style">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>  
+	    <item name="android:layout_gravity">center_vertical</item>
+	    <item name="android:textSize">12sp</item>   	      
+    </style>        
+    
+</resources>

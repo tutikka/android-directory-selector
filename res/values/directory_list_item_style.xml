@@ -1,0 +1,28 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">  
+    
+    <!-- content relative layout -->
+    <style name="directory_list_item_style">
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">fill_parent</item>
+	    <item name="android:padding">8dp</item>     
+    </style>    
+    
+    <!-- directory icon -->
+    <style name="directory_icon_style">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:layout_centerVertical">true</item>
+	    <item name="android:src">@null</item>
+	    <item name="android:tint">#cccccc</item>
+    </style>
+
+    <!-- directory name -->
+    <style name="directory_name_style">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:layout_marginLeft">8dp</item>
+	    <item name="android:layout_centerVertical">true</item>
+	    <item name="android:textSize">12sp</item>        
+    </style>
+
+</resources>

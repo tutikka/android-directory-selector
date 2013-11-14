@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">Directory Selector</string>
+
+    <string name="directory_selector_dialog_title">Select Directory</string>
+    <string name="directory_selector_dialog_parent">[ Up to parent ]</string>
+    <string name="directory_selector_dialog_button_cancel">Cancel</string>
+    <string name="directory_selector_dialog_button_home">Home</string>
+    <string name="directory_selector_dialog_button_select">Select</string>    
+    
+    <string name="sample_button">Select Directory</string>
+    
+</resources>

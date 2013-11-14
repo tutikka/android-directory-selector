@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/directory_selector_dialog_style">
+    
+	<TableLayout
+	    android:id="@+id/directory_selector_buttons"
+	 	android:layout_alignParentBottom="true"
+	 	style="@style/directory_selector_buttons_style">
+	 	
+	 	<TableRow>
+	 	    
+			<Button
+		    	android:id="@+id/directory_selector_cancel"
+				style="@style/directory_selector_dialog_cancel_style"		 		
+				android:text="@string/directory_selector_dialog_button_cancel"/>
+			
+			<Button
+		    	android:id="@+id/directory_selector_home"
+				style="@style/directory_selector_dialog_home_style"		 		
+				android:text="@string/directory_selector_dialog_button_home"/>
+						 	   
+			<Button
+		    	android:id="@+id/directory_selector_select"
+				style="@style/directory_selector_dialog_select_style"
+				android:text="@string/directory_selector_dialog_button_select"/>
+				 
+	 	</TableRow>
+	 	
+	</TableLayout>
+        
+    <EditText
+    	android:id="@+id/directory_selector_current"
+        android:layout_above="@id/directory_selector_buttons"
+        style="@style/directory_selector_current_style"/>
+    
+	<ListView
+		android:id="@+id/directory_selector_list"
+   		android:layout_alignParentTop="true"
+   		android:layout_above="@id/directory_selector_current"
+   		android:orientation="vertical"   		
+   		style="@style/directory_selector_list_style"/>    	
+	
+</RelativeLayout>
