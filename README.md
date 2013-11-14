@@ -13,7 +13,7 @@ Using the default style resources in Android 4.3:
 Usage
 -----
 
-Integrating the component to youe existing project is very simple. Probably the easiest approach is (using Eclipse):
+Integrating the component to your existing project is very simple. Probably the easiest approach is (using Eclipse):
 
 1. Clone the project
 2. Import the project into your workspace
@@ -24,7 +24,7 @@ Integrating the component to youe existing project is very simple. Probably the 
 Example
 -------
 
-Create directory selector dialog:
+Create the directory selector dialog:
 
 <pre>
 DirectorySelectorDialog directorySelector = new DirectorySelectorDialog(this, Environment.getExternalStorageDirectory());
@@ -32,7 +32,7 @@ directorySelector.addDirectorySelectorListener(this);
 directorySelector.show();	
 </pre>
 
-Listen for directory selection:
+Listen for a directory selection:
 
 <pre>
 @Override
@@ -40,6 +40,8 @@ public void onDirectorySelected(File directory) {
 	Toast.makeText(this, "Selected '" + directory.getAbsolutePath() + "'", Toast.LENGTH_SHORT).show();
 }	
 </pre>
+
+Please check SampleActivity.java for the full sample source code.
 
 Customization
 -------------
@@ -49,4 +51,4 @@ TODO
 Credits
 -------
 
-TODO
+TODO  
