@@ -33,7 +33,7 @@ public class SampleActivity extends Activity implements OnClickListener, Directo
 	public void onClick(View view) {
 		if (TAG_SELECT.equals(view.getTag())) {
 			try {
-				DirectorySelectorDialog directorySelector = new DirectorySelectorDialog(this, selectedDirectory);
+				DirectorySelectorDialog directorySelector = new DirectorySelectorDialog(this, selectedDirectory, DirectorySelectorDialog.SORT_NAME, DirectorySelectorDialog.ORDER_ASCENDING);
 				directorySelector.addDirectorySelectorListener(this);
 				directorySelector.show();
 			} catch (IllegalArgumentException e) {

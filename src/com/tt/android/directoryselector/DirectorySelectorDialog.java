@@ -3,6 +3,7 @@ package com.tt.android.directoryselector;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import com.tt.android.directorypicker.R;
@@ -29,6 +30,14 @@ import android.widget.TextView;
  */
 public class DirectorySelectorDialog extends Dialog implements OnItemClickListener, android.view.View.OnClickListener {
 
+	public static final int SORT_NAME = 0;
+	
+	public static final int SORT_MODIFIED = 1;
+	
+	public static final int ORDER_ASCENDING = 1;
+	
+	public static final int ORDER_DESCENDING = -1;
+	
 	private static final String TAG_CANCEL = "cancel";
 	
 	private static final String TAG_HOME = "home";
@@ -46,6 +55,8 @@ public class DirectorySelectorDialog extends Dialog implements OnItemClickListen
 	private Button home;
 	
 	private Button select;
+	
+	private DirectoryListComparator comparator = new DirectoryListComparator(SORT_NAME, ORDER_ASCENDING);
 	
 	public DirectorySelectorDialog(Context context, File directory) throws IllegalArgumentException {
 		super(context);
@@ -89,10 +100,30 @@ public class DirectorySelectorDialog extends Dialog implements OnItemClickListen
 		select.setOnClickListener(this);
 		
 		current = directory;
-		
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
 		list(current);
 	}
 
+	public DirectorySelectorDialog(Context context, File directory, int sortBy) throws IllegalArgumentException {
+		this(context, directory);
+		if (sortBy != SORT_NAME && sortBy != SORT_MODIFIED) {
+			throw new IllegalArgumentException("invalid sort criteria");
+		}
+		comparator.setSort(sortBy);
+	}
+	
+	public DirectorySelectorDialog(Context context, File directory, int sortBy, int orderBy) throws IllegalArgumentException {
+		this(context, directory, sortBy);
+		if (orderBy != ORDER_ASCENDING && orderBy != ORDER_DESCENDING) {
+			throw new IllegalArgumentException("invalid order criteria");
+		}
+		comparator.setOrder(orderBy);
+	}	
+	
 	public void addDirectorySelectorListener(DirectorySelectorListener listener) {
 		if (!listeners.contains(listener)) {
 			listeners.add(listener);
@@ -120,6 +151,7 @@ public class DirectorySelectorDialog extends Dialog implements OnItemClickListen
 				listAdapter.add(file);
 			}
 		}
+		listAdapter.sort(comparator);
 	}
 	
 	public void onClick(View view) {
@@ -175,5 +207,39 @@ public class DirectorySelectorDialog extends Dialog implements OnItemClickListen
 	    }
 	 
 	}	
+	
+	private class DirectoryListComparator implements Comparator<File> {
+
+		private int sort;
+		
+		private int order;
+		
+		private DirectoryListComparator(int sort, int order) {
+			this.sort = sort;
+			this.order = order;
+		}
+		
+		private void setSort(int sort) {
+			this.sort = sort;
+		}
+		
+		private void setOrder(int order) {
+			this.order = order;
+		}
+		
+		@Override
+		public int compare(File lhs, File rhs) {
+			if (lhs == null || rhs == null) {
+				return (1);
+			}
+			switch (sort) {
+			case SORT_NAME : return (order * lhs.getName().compareTo(rhs.getName()));
+			case SORT_MODIFIED : return (order * Long.valueOf(lhs.lastModified()).compareTo(Long.valueOf(rhs.lastModified())));
+			default: return (order * lhs.getName().compareTo(rhs.getName()));
+			}
+			
+		}
+		
+	}
 	
 }
