@@ -56,9 +56,44 @@ public class DirectorySelectorDialog extends Dialog implements OnItemClickListen
 	
 	private Button select;
 	
-	private DirectoryListComparator comparator = new DirectoryListComparator(SORT_NAME, ORDER_ASCENDING);
+	private DirectoryListComparator comparator;
 	
-	public DirectorySelectorDialog(Context context, File directory) throws IllegalArgumentException {
+	public static class Builder {
+		
+		private Context context;
+		
+		private File directory = Environment.getExternalStorageDirectory();
+		
+		private int sortBy = DirectorySelectorDialog.SORT_NAME;
+		
+		private int orderBy = DirectorySelectorDialog.ORDER_ASCENDING;
+		
+		public Builder(Context context) {
+			this.context = context;
+		}
+		
+		public Builder directory(File directory) {
+			this.directory = directory;
+			return (this);
+		}
+		
+		public Builder sortBy(int sortBy) {
+			this.sortBy = sortBy;
+			return (this);
+		}
+		
+		public Builder orderBy(int orderBy) {
+			this.orderBy = orderBy;
+			return (this);
+		}
+		
+		public DirectorySelectorDialog build() throws IllegalArgumentException {
+			return (new DirectorySelectorDialog(context, directory, sortBy, orderBy));
+		}
+		
+	}
+	
+	private DirectorySelectorDialog(Context context, File directory, int sortBy, int orderBy) throws IllegalArgumentException {
 		super(context);
 		
 		if (directory == null) {
@@ -75,6 +110,14 @@ public class DirectorySelectorDialog extends Dialog implements OnItemClickListen
 		
 		if (!directory.canRead()) {
 			throw new IllegalArgumentException(directory.getAbsolutePath() + " is not readable");
+		}
+		
+		if (sortBy != SORT_NAME && sortBy != SORT_MODIFIED) {
+			throw new IllegalArgumentException("invalid sort criteria");
+		}
+		
+		if (orderBy != ORDER_ASCENDING && orderBy != ORDER_DESCENDING) {
+			throw new IllegalArgumentException("invalid order criteria");
 		}
 		
 		setTitle(R.string.directory_selector_dialog_title);
@@ -100,28 +143,10 @@ public class DirectorySelectorDialog extends Dialog implements OnItemClickListen
 		select.setOnClickListener(this);
 		
 		current = directory;
-	}
-
-	@Override
-	protected void onStart() {
-		super.onStart();
+		
+		comparator = new DirectoryListComparator(sortBy, orderBy);
+		
 		list(current);
-	}
-
-	public DirectorySelectorDialog(Context context, File directory, int sortBy) throws IllegalArgumentException {
-		this(context, directory);
-		if (sortBy != SORT_NAME && sortBy != SORT_MODIFIED) {
-			throw new IllegalArgumentException("invalid sort criteria");
-		}
-		comparator.setSort(sortBy);
-	}
-	
-	public DirectorySelectorDialog(Context context, File directory, int sortBy, int orderBy) throws IllegalArgumentException {
-		this(context, directory, sortBy);
-		if (orderBy != ORDER_ASCENDING && orderBy != ORDER_DESCENDING) {
-			throw new IllegalArgumentException("invalid order criteria");
-		}
-		comparator.setOrder(orderBy);
 	}	
 	
 	public void addDirectorySelectorListener(DirectorySelectorListener listener) {
@@ -216,14 +241,6 @@ public class DirectorySelectorDialog extends Dialog implements OnItemClickListen
 		
 		private DirectoryListComparator(int sort, int order) {
 			this.sort = sort;
-			this.order = order;
-		}
-		
-		private void setSort(int sort) {
-			this.sort = sort;
-		}
-		
-		private void setOrder(int order) {
 			this.order = order;
 		}
 		

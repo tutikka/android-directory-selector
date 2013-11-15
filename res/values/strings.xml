@@ -8,6 +8,4 @@
     <string name="directory_selector_dialog_button_home">Home</string>
     <string name="directory_selector_dialog_button_select">Select</string>    
     
-    <string name="sample_button">Select Directory</string>
-    
 </resources>

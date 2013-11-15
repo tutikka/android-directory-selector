@@ -19,23 +19,22 @@ Usage
 
 Integrating the component to your existing project is very simple. Probably the easiest approach is (using Eclipse):
 
-1. Clone the project
-2. Import the project into your workspace
-3. Run the sample application and see how the it works from the source code
-4. Turn the project into a library (project properties, Android, Is Library)
-5. Reference the project as a library from your own stuff
+1. Clone and import the project into your workspace
+2. Reference the project as a library from your application
+3. Check out the example below how to take it into use
+
+For more information on using Android library projects, see:
+
+http://developer.android.com/tools/projects/projects-eclipse.html
 
 Example
 -------
 
-Example code from SampleActivity.java:
-
-<pre>
+```java
 package com.tt.android.directoryselector.sample;
 
 import java.io.File;
 
-import com.tt.android.directorypicker.R;
 import com.tt.android.directoryselector.DirectorySelectorDialog;
 import com.tt.android.directoryselector.DirectorySelectorListener;
 
@@ -66,9 +65,13 @@ public class SampleActivity extends Activity implements OnClickListener, Directo
 	public void onClick(View view) {
 		if (TAG_SELECT.equals(view.getTag())) {
 			try {
-				DirectorySelectorDialog directorySelector = new DirectorySelectorDialog(this, selectedDirectory, DirectorySelectorDialog.SORT_NAME, DirectorySelectorDialog.ORDER_ASCENDING);
-				directorySelector.addDirectorySelectorListener(this);
-				directorySelector.show();
+				DirectorySelectorDialog dialog = new DirectorySelectorDialog.Builder(this)
+					.directory(selectedDirectory)
+					.sortBy(DirectorySelectorDialog.SORT_NAME)
+					.orderBy(DirectorySelectorDialog.ORDER_ASCENDING)
+					.build();				
+				dialog.addDirectorySelectorListener(this);
+				dialog.show();
 			} catch (IllegalArgumentException e) {
 				Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
 			}
@@ -81,8 +84,8 @@ public class SampleActivity extends Activity implements OnClickListener, Directo
 		Toast.makeText(this, "Selected '" + directory.getAbsolutePath() + "'", Toast.LENGTH_SHORT).show();
 	}
 	
-}	
-</pre>
+}
+``
 
 Customization
 -------------
