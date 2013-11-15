@@ -85,7 +85,7 @@ public class SampleActivity extends Activity implements OnClickListener, Directo
 	}
 	
 }
-``
+```
 
 Customization
 -------------
