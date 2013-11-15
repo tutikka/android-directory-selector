@@ -30,7 +30,7 @@ Example
 
 Example code from SampleActivity.java:
 
-<code>
+<pre>
 package com.tt.android.directoryselector.sample;
 
 import java.io.File;
@@ -82,7 +82,7 @@ public class SampleActivity extends Activity implements OnClickListener, Directo
 	}
 	
 }	
-</code>
+</pre>
 
 Customization
 -------------
