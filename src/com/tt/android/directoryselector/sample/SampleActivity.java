@@ -14,11 +14,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-/**
- * Sample activity for the Directory Picker library.
- * 
- * @author Tuomas Tikka
- */
 public class SampleActivity extends Activity implements OnClickListener, DirectorySelectorListener {
 
 	private static final String TAG_SELECT = "select";
@@ -28,12 +23,10 @@ public class SampleActivity extends Activity implements OnClickListener, Directo
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.sample);
-		
-		Button pick = (Button) findViewById(R.id.sample_select);
-		pick.setTag(TAG_SELECT);
-		pick.setOnClickListener(this);
+		Button select = (Button) findViewById(R.id.sample_select);
+		select.setTag(TAG_SELECT);
+		select.setOnClickListener(this);
 	}
 
 	@Override
