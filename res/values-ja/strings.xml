@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="directory_selector_dialog_title">フォルダ選択</string>
+    <string name="directory_selector_dialog_parent">（１つ上のフォルダ）</string>
+    <string name="directory_selector_dialog_button_cancel">キャンセル</string>
+    <string name="directory_selector_dialog_button_home">ホームへ</string>
+    <string name="directory_selector_dialog_button_select">選択完了</string>    
+    
+</resources>
