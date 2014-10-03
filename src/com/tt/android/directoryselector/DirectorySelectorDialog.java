@@ -18,16 +18,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-/**
- * Directory selector component implemented as a dialog.
- * 
- * @author Tuomas Tikka
- */
 public class DirectorySelectorDialog extends Dialog implements OnItemClickListener, android.view.View.OnClickListener {
 
 	public static final int SORT_NAME = 0;
@@ -160,8 +154,8 @@ public class DirectorySelectorDialog extends Dialog implements OnItemClickListen
 	}
 	
 	private void list(File directory) {
-		EditText et = (EditText) findViewById(R.id.directory_selector_current);
-		et.setText(current.getAbsolutePath());
+		TextView tv = (TextView) findViewById(R.id.directory_selector_current);
+		tv.setText(current.getAbsolutePath());
 		listAdapter.clear();
 		File[] files = directory.listFiles(new FileFilter() {
 			public boolean accept(File pathname) {

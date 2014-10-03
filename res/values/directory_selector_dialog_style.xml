@@ -10,12 +10,9 @@
     <style name="directory_selector_current_style">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:inputType">none</item>
         <item name="android:ellipsize">end</item>
-        <item name="android:enabled">false</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">8dp</item>
     </style>
     
     <!-- directory items listview -->
@@ -36,7 +33,7 @@
 	    <item name="android:layout_width">wrap_content</item>
 	    <item name="android:layout_height">wrap_content</item>  
 	    <item name="android:layout_gravity">center_vertical</item>
-	    <item name="android:textSize">12sp</item>        
+	    <item name="android:textSize">16sp</item>        
     </style>      
 
     <!-- home button -->
@@ -44,7 +41,7 @@
 	    <item name="android:layout_width">wrap_content</item>
 	    <item name="android:layout_height">wrap_content</item>  
 	    <item name="android:layout_gravity">center_vertical</item>
-	    <item name="android:textSize">12sp</item>	      
+	    <item name="android:textSize">16sp</item>	      
     </style>    
     
     <!-- select button -->
@@ -52,7 +49,7 @@
 	    <item name="android:layout_width">wrap_content</item>
 	    <item name="android:layout_height">wrap_content</item>  
 	    <item name="android:layout_gravity">center_vertical</item>
-	    <item name="android:textSize">12sp</item>   	      
+	    <item name="android:textSize">16sp</item>   	      
     </style>        
     
 </resources>

@@ -4,6 +4,11 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	style="@style/directory_selector_dialog_style">
     
+    <TextView
+    	android:id="@+id/directory_selector_current"
+        android:layout_alignParentTop="true"
+        style="@style/directory_selector_current_style"/>
+    
 	<TableLayout
 	    android:id="@+id/directory_selector_buttons"
 	 	android:layout_alignParentBottom="true"
@@ -30,15 +35,10 @@
 	 	
 	</TableLayout>
         
-    <EditText
-    	android:id="@+id/directory_selector_current"
-        android:layout_above="@id/directory_selector_buttons"
-        style="@style/directory_selector_current_style"/>
-    
 	<ListView
 		android:id="@+id/directory_selector_list"
-   		android:layout_alignParentTop="true"
-   		android:layout_above="@id/directory_selector_current"
+   		android:layout_below="@id/directory_selector_current"
+   		android:layout_above="@id/directory_selector_buttons"
    		android:orientation="vertical"   		
    		style="@style/directory_selector_list_style"/>    	
 	
